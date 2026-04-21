@@ -11,7 +11,15 @@ The directory skeleton is in place (see **Architecture** below). `requirements.t
 ## How to run things
 
 ```bash
-pip install -r requirements.txt
+python -m pip install -r requirements.txt
+python -m pip install -e .   # installs src/virality as an editable package — required for all imports
+
+# Download datasets from Kaggle into data/raw/ (requires ~/.kaggle/kaggle.json)
+python scripts/download_data.py
+# → data/raw/social_media_engagement/  (primary dataset — nigarali/social-media-engagement)
+# → data/raw/youtube_trending/          (complementary — canerkonuk/youtube-trending-videos-global)
+# To add more datasets: uncomment slugs in the DATASETS dict in scripts/download_data.py
+
 streamlit run src/dashboard/app.py
 ```
 

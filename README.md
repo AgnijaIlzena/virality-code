@@ -9,14 +9,25 @@ Décoder, mesurer et prédire la viralité d'un post social à partir de ses car
 python -m venv .venv
 .venv\Scripts\activate          # Windows
 # source .venv/bin/activate     # macOS / Linux
+# source .venv/Scripts/activate # bash
 
 # 2. Installer les dépendances
-pip install -r requirements.txt
+python -m pip install -r requirements.txt
 
-# 3. Déposer le dataset Kaggle brut dans data/raw/
-#    (cf. BRIEF.md §3 pour la source)
+# 3. Installer le package local en mode éditable (requis pour les imports virality.*)
+python -m pip install -e .
 
-# 4. Lancer le dashboard Streamlit
+# 4. Configurer l'API Kaggle
+#    Kaggle → Account → Settings → Create New API Token → sauvegarder kaggle.json dans :
+#    Windows : C:\Users\<vous>\.kaggle\kaggle.json
+#    ou ajouter dans .env
+
+# 5. Télécharger les datasets
+python scripts/download_data.py
+#    → copie les fichiers dans data/raw/social_media_engagement/ et data/raw/youtube_trending/
+#    Pour ajouter d'autres datasets, décommenter les slugs dans DATASETS dans scripts/download_data.py
+
+# 6. Lancer le dashboard Streamlit
 streamlit run src/dashboard/app.py
 ```
 
