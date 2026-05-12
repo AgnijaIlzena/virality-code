@@ -7,9 +7,9 @@ Décoder, mesurer et prédire la viralité d'un post social à partir de ses car
 ```bash
 # 1. Créer et activer un environnement virtuel (Python 3.11+)
 python -m venv .venv
-.venv\Scripts\activate          # Windows
+# .venv\Scripts\activate          # Windows
 # source .venv/bin/activate     # macOS / Linux
-# source .venv/Scripts/activate # bash
+source .venv/Scripts/activate # bash
 
 # 2. Installer les dépendances
 python -m pip install -r requirements.txt
