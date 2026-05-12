@@ -5,3 +5,7 @@ streamlit>=1.30
 duckdb>=0.10
 jupyter>=1.0
 kagglehub>=0.3
+plotly
+openpyxl
+statsmodels
+matplotlib
